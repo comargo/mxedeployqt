@@ -157,7 +157,7 @@ def find_files(path):
     '''Find all files in the given path and it's subdirectories'''
     logging.info("Scanning path: " + path + " for files")
     result = []
-    for (d, _, files) in os.walk(path):
+    for (d, _, files) in os.walk(path, followlinks=True):
         for f in files:
             path = os.path.join(d, f)
             if os.path.exists(path):
